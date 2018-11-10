@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import DashboardComponent from './DashboardComponent';
+import DashboardComponent from "./DashboardComponent";
 
 class DashboardContainer extends React.Component {
     constructor(props) {
