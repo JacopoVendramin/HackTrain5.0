@@ -9,13 +9,13 @@ import './Dashboard.scss';
 const DashboardComponent = ({ focusedTab, onTabChange }) => {
     return (
         <div className="Dashboard">
-            <Grid container>
+            <Grid container style={{ height: '100%', overflowY:'auto' }}>
                 <Grid item xs={8}>
                     <LineListview items={[
-                        {name:'London',status:'Blocked'},
-                        {name:'London',status:'Blocked'},
-                        {name:'London',status:'Blocked'},
-                        ]}/>
+                        { name: 'London', status: 'Blocked' },
+                        { name: 'London', status: 'Blocked' },
+                        { name: 'London', status: 'Blocked' },
+                    ]} />
                 </Grid>
                 <Grid item xs={4} >
                     <TabBar onTabChange={onTabChange} focusedTab={focusedTab} />

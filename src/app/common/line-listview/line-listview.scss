@@ -1,9 +1,9 @@
 .lineListView {
+    height: 100%;
     list-style: none;
     padding: 0px;
     margin: 0px;
     background: #FFFF;
-    height: 40vh;
     overflow: auto;
 
     &__item {
