@@ -1,0 +1,31 @@
+[{
+        "name": "Worplesdon Railway Station",
+        "long": -0.583,
+        "lat": 51.289
+    },
+    {
+        "name": "Guildford Railway Station",
+        "long": -0.58258,
+        "lat": 51.23730
+    },
+    {
+        "name": "Farncombe Railway Station",
+        "long": -0.60450,
+        "lat": 51.19719
+    },
+    {
+        "name": "Godalming Railway Station",
+        "long": -0.61721,
+        "lat": 51.18609
+    },
+    {
+        "name": "Milford Railway Station",
+        "long": -0.65014,
+        "lat": 51.17347
+    },
+    {
+        "name": "Farncombe Railway Station",
+        "long": -0.60450,
+        "lat": 51.19719
+    }
+]
