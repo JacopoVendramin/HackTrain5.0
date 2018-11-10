@@ -5,16 +5,27 @@ import DashboardComponent from './DashboardComponent';
 
 class DashboardContainer extends React.Component {
     constructor(props) {
-      super(props);
+        super(props);
 
-      this.state = {
+        this.state = {
+            focusedTab: 0
+        }
 
-      }
+    }
+
+    handleTabChange = (event, index) => {
+        this.setState({
+            focusedTab: index
+        })
     }
 
     render() {
         return (
-            <DashboardComponent />
+            <DashboardComponent
+                focusedTab = {this.state.focusedTab}
+                onTabChange= {this.handleTabChange}
+            />
+
         )
     }
 }
