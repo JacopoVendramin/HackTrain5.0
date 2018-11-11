@@ -77,18 +77,16 @@ const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails,
                             </header>
                         </div>,
                         <LineListview items={[
-                                { name: 'London', status: 'Warning', dwellDelay: 5 },
-                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
-                                { name: 'London', status: 'Warning', dwellDelay: 20 },
-                                { name: 'London', status: 'Safe', dwellDelay: 2 },
-                                { name: 'London', status: 'Warning', dwellDelay: 5 },
-                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
-                                { name: 'London', status: 'Warning', dwellDelay: 20 },
-                                { name: 'London', status: 'Safe', dwellDelay: 2 },
-                                { name: 'London', status: 'Warning', dwellDelay: 5 },
-                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
-                                { name: 'London', status: 'Warning', dwellDelay: 20 },
-                                { name: 'London', status: 'Safe', dwellDelay: 2 },
+                                { name: 'London Waterloo Railway Station', status: 'Warning', dwellDelay: 5 },
+                                { name: 'Vauxhall Railway Station', status: 'Blocked', dwellDelay: 60 },
+                                { name: 'Clapham Junction Main', status: 'Warning', dwellDelay: 20 },
+                                { name: 'Earlsfield Railway Station', status: 'Safe', dwellDelay: 2 },
+                                { name: 'Wimbledon Railway Station', status: 'Warning', dwellDelay: 5 },
+                                { name: 'Surbiton Railway Station', status: 'Blocked', dwellDelay: 60 },
+                                { name: 'Esher Railway Station', status: 'Warning', dwellDelay: 20 },
+                                { name: 'Hersham Railway Station', status: 'Safe', dwellDelay: 2 },
+                                { name: 'Walton on Thames Railway Station', status: 'Warning', dwellDelay: 5 },
+                                { name: 'Weybridge Railway Station', status: 'Blocked', dwellDelay: 60 },
                             ]} />
                         ] : null}
                     </Grid>
@@ -96,11 +94,12 @@ const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails,
                         {activeMarker ? <DetailCard
                             station={stations[activeMarker] ? stations[activeMarker] : null}
                             details={activeMarkerDetails}
-                            /> : null}
-                        </Grid>
+                            />
+                        : null}
                     </Grid>
-                </div>
-            )
-        }
+                </Grid>
+            </div>
+        )
+    }
 
-        export default DashboardComponent;
+    export default DashboardComponent;

@@ -11,7 +11,7 @@ const LineListviewItem = ({name, status, dwellDelay}) => (
         <Bullet delay={dwellDelay}/>
         <Typography variant='h5'>{name}</Typography>
         <Typography variant='body2'><strong>{status}</strong></Typography>
-        <Typography variant='body2'><strong>1.2s</strong></Typography>
+        <Typography variant='body2'><strong>{dwellDelay}s</strong></Typography>
     </li>
 )
 
