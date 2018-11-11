@@ -9,7 +9,19 @@ const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoiamFjb3BvdmVuZHJhbWluIiwiYSI6ImNqbDdwM2o3bjA1amoza212ODZmNDA1ZTUifQ.Mk51lK1M-J-h3XyVCoh-Ow"
 });
 
-const MapView = ({ stations, focusedMarker, activeMarker, onMarkerMouseEnter, onMarkerMouseLeave, onMarkerClick }) => (
+const ranges = {
+    safe: 2,
+    warning: 10,
+    critical: 30
+}
+
+const getStatus = (delta) => {
+    if (delta <= ranges.safe && delta >= -ranges.safe) return "safe";
+    if (delta >= ranges.warning || delta <= -ranges.warning) return "warning";
+    return "critical";
+}
+
+const MapView = ({ stations, mapMarkerStats, focusedMarker, activeMarker, onMarkerMouseEnter, onMarkerMouseLeave, onMarkerClick }) => (
     <Map
         style="mapbox://styles/jacopovendramin/cjobne97o2eys2sn0xl99dbjc"
         center={[-0.576583, 51.238606]}
@@ -23,15 +35,15 @@ const MapView = ({ stations, focusedMarker, activeMarker, onMarkerMouseEnter, on
             LineString={geoJson}>
         </Layer>
 
-        {stations.map((station, index) => (
+        {stations.map((station, index) => {console.log(station.name + index); return(
             <Marker
                 onClick={() => onMarkerClick(index)}
                 coordinates={[station.long, station.lat]}
                 anchor="bottom"
                 >
-                <div className={`MapView__marker MapView__marker--${"safe"}`} />
+                <div className={`MapView__marker MapView__marker--${getStatus(mapMarkerStats[index])}`} />
             </Marker>
-        ))}
+        )})}
 
         {focusedMarker ? <Popup
             coordinates={[stations[focusedMarker].long, stations[focusedMarker].lat]}

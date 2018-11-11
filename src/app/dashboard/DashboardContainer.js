@@ -15,10 +15,12 @@ class DashboardContainer extends React.Component {
             activeMarker: null,
             activeMarkerAvg: null,
             activeMarkerLatest: null,
+            cammino: [ 2, -13, 4, 5, 8, 6, 56, 1, 1, -3, -8, 0, 0, 2, -1, -2, 3, 9, -10, 1, 2, 22, 1, 4, 2, 45, 5, 2, 1, 2, 1, 4, 3, 5 ],
         }
     }
 
     componentDidMount(){
+
         fetch('http://localhost:3001/station/CLAPHAM%20JUNCTION%20MAIN%20(9-11)')
             .then(function(response){
                 return response.json()
@@ -38,13 +40,14 @@ class DashboardContainer extends React.Component {
     }
 
     handleMarkerClick = (index) => {
+        let self = this
         if (index) {
             fetch(`http://localhost:3001/station/${stations[index].id}`)
                 .then(function(response){
                     return response.json()
                 })
                 .then(function(json){
-                    this.setState({ activeMarkerAvg: json.result[0].adAvg })
+                    self.setState({ activeMarkerAvg: json.result[0].adAvg })
                 })
                 .catch(function(ex){
                     console.log(ex)
@@ -54,7 +57,7 @@ class DashboardContainer extends React.Component {
                     return response.json()
                 })
                 .then(function(json){
-                    this.setState({ activeMarkerLatest: json.Trainperf })
+                    self.setState({ activeMarkerLatest: json.Trainperf })
                 })
                 .catch(function(ex){
                     console.log(ex)
@@ -75,6 +78,7 @@ class DashboardContainer extends React.Component {
                     avg: this.state.activeMarkerAvg,
                     latest: this.state.activeMarkerLatest
                 }}
+                mapMarkerStats={this.state.cammino}
                 onTabChange= {this.handleTabChange}
                 onMarkerClick = {this.handleMarkerClick}
             />

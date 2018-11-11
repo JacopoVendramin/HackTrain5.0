@@ -2,8 +2,21 @@
     display: block;
     height: 32px;
     width: 32px;
-    background: red;
     border-radius: 16px;
-    border: 8px solid lighten(red, 30%);
     box-sizing: border-box;
+
+    &--safe {
+        background: green;
+        border: 8px solid lighten(green, 30%);
+    }
+
+    &--warning {
+        background: orange;
+        border: 8px solid lighten(orange, 30%);
+    }
+
+    &--critical {
+        background: red;
+        border: 8px solid lighten(red, 30%);
+    }
 }

@@ -21,7 +21,7 @@ const ranges = {
 
 const getStatus = (delta) => {
     if (delta <= ranges.safe && delta >= -ranges.safe) return "safe";
-    if (delta >= ranges.warning && delta <= -ranges.warning) return "warning";
+    if (delta >= ranges.warning || delta <= -ranges.warning) return "warning";
     return "critical";
 }
 
@@ -47,14 +47,14 @@ const DetailCard = (props) => {
                     <Grid item xs={6}>
                         <div className="DetailCard__info__box">
                             <Typography variant="body1"><strong>Today avarage</strong></Typography>
-                            <Typography variant="h3">{ 0 + avgTotal > 10 ? avgTotal : "0" + avgTotal }</Typography>
+                            <Typography variant="h3">{ "0:" + (avgTotal > 10 ? avgTotal : "0" + avgTotal) }</Typography>
                             <Typography variant="body1">{avg}</Typography>
                         </div>
                     </Grid>
                     <Grid item xs={6}>
                         <div className="DetailCard__info__box">
                             <Typography variant="body1"><strong>Latest dwell</strong></Typography>
-                            <Typography variant="h3">{ 0 + latestTotal > 10 ? latestTotal : "0" + latestTotal }</Typography>
+                            <Typography variant="h3">{ "0:" + (latestTotal > 10 ? latestTotal : "0" + latestTotal) }</Typography>
                             <Typography variant="body1">{latest}</Typography>
                         </div>
                     </Grid>
@@ -64,12 +64,12 @@ const DetailCard = (props) => {
     )
 }
 
-const DashboardComponent = ({ activeMarker, activeMarkerDetails, onMarkerClick }) => {
+const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails, onMarkerClick }) => {
     return (
         <div className="Dashboard">
             <Grid container style={{ height: '100%', overflowY:'auto' }}>
                 <Grid item xs={8}>
-                    <MapView stations={stations} onMarkerClick={onMarkerClick}/>
+                    <MapView stations={stations} mapMarkerStats={mapMarkerStats} onMarkerClick={onMarkerClick}/>
                 </Grid>
                 <Grid item xs={4}>
                     {activeMarker ? <DetailCard
