@@ -7,7 +7,7 @@
 
     img { height: 32px; }
     h5 { flex-grow: 1; color: $background-color }
-    a { text-decoration: none; cursor: pointer; color: $background-color }
+    a, button { text-decoration: none; cursor: pointer; &:last-child { margin-right: 16px; } }
 
     &__up {
         margin-right: 16px;

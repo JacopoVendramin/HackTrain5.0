@@ -17,10 +17,11 @@ class DashboardContainer extends React.Component {
             activeMarkerLatest: null,
             cammino: [ 2, -13, 4, 5, 8, 6, 56, 1, 1, -3, -8, 0, 0, 2, -1, -2, 3, 9, -10, 1, 2, 22, 1, 4, 2, 45, 5, 2, 1, 2, 1, 4, 3, 5 ],
         }
+
+        console.log(props.match.url);
     }
 
     componentDidMount(){
-
         fetch('http://localhost:3001/station/CLAPHAM%20JUNCTION%20MAIN%20(9-11)')
             .then(function(response){
                 return response.json()
@@ -81,6 +82,7 @@ class DashboardContainer extends React.Component {
                 mapMarkerStats={this.state.cammino}
                 onTabChange= {this.handleTabChange}
                 onMarkerClick = {this.handleMarkerClick}
+                shit={this.props.match.url == "/map" ? true : false}
             />
 
         )

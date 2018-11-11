@@ -11,6 +11,7 @@ const App = () => (
         <Router>
             <Switch>
                 <DashboardLayout exact path="/" component={Dashboard} />
+                <DashboardLayout exact path="/map" component={Dashboard} shit />
             </Switch>
         </Router>
     </MuiThemeProvider>

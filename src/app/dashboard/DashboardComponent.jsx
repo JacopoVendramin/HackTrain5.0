@@ -64,22 +64,43 @@ const DetailCard = (props) => {
     )
 }
 
-const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails, onMarkerClick }) => {
+const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails, onMarkerClick, shit }) => {
     return (
         <div className="Dashboard">
             <Grid container style={{ height: '100%', overflowY:'auto' }}>
                 <Grid item xs={8}>
-                    <MapView stations={stations} mapMarkerStats={mapMarkerStats} onMarkerClick={onMarkerClick}/>
-                </Grid>
-                <Grid item xs={4}>
-                    {activeMarker ? <DetailCard
-                        station={stations[activeMarker] ? stations[activeMarker] : null}
-                        details={activeMarkerDetails}
-                        /> : null}
-                </Grid>
-            </Grid>
-        </div>
-    )
-}
+                    {shit ? <MapView stations={stations} mapMarkerStats={mapMarkerStats} onMarkerClick={onMarkerClick}/> : null}
+                    {!shit ? [
+                        <div className="Dashboard__left__header">
+                            <header>
+                                <Typography variant="h2">London line 2<button><CloseIcon/></button></Typography>
+                            </header>
+                        </div>,
+                        <LineListview items={[
+                                { name: 'London', status: 'Warning', dwellDelay: 5 },
+                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
+                                { name: 'London', status: 'Warning', dwellDelay: 20 },
+                                { name: 'London', status: 'Safe', dwellDelay: 2 },
+                                { name: 'London', status: 'Warning', dwellDelay: 5 },
+                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
+                                { name: 'London', status: 'Warning', dwellDelay: 20 },
+                                { name: 'London', status: 'Safe', dwellDelay: 2 },
+                                { name: 'London', status: 'Warning', dwellDelay: 5 },
+                                { name: 'London', status: 'Blocked', dwellDelay: 60 },
+                                { name: 'London', status: 'Warning', dwellDelay: 20 },
+                                { name: 'London', status: 'Safe', dwellDelay: 2 },
+                            ]} />
+                        ] : null}
+                    </Grid>
+                    <Grid item xs={4}>
+                        {activeMarker ? <DetailCard
+                            station={stations[activeMarker] ? stations[activeMarker] : null}
+                            details={activeMarkerDetails}
+                            /> : null}
+                        </Grid>
+                    </Grid>
+                </div>
+            )
+        }
 
-export default DashboardComponent;
+        export default DashboardComponent;
