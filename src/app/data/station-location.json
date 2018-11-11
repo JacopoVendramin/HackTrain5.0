@@ -1,31 +1,158 @@
 [{
-        "name": "Worplesdon Railway Station",
-        "long": -0.583,
-        "lat": 51.289
-    },
-    {
-        "name": "Guildford Railway Station",
-        "long": -0.58258,
-        "lat": 51.23730
-    },
-    {
-        "name": "Farncombe Railway Station",
-        "long": -0.60450,
-        "lat": 51.19719
-    },
-    {
-        "name": "Godalming Railway Station",
-        "long": -0.61721,
-        "lat": 51.18609
-    },
-    {
-        "name": "Milford Railway Station",
-        "long": -0.65014,
-        "lat": 51.17347
-    },
-    {
-        "name": "Farncombe Railway Station",
-        "long": -0.60450,
-        "lat": 51.19719
-    }
+    "name": "Worplesdon Railway Station",
+    "long": -0.583,
+    "lat": 51.289
+},
+{
+    "name": "Guildford Railway Station",
+    "long": -0.58258,
+    "lat": 51.23730
+},
+{
+    "name": "Farncombe Railway Station",
+    "long": -0.60450,
+    "lat": 51.19719
+},
+{
+    "name": "Godalming Railway Station",
+    "long": -0.61721,
+    "lat": 51.18609
+},
+{
+    "name": "Milford Railway Station",
+    "long": -0.65014,
+    "lat": 51.17347
+},
+{
+    "name": "Havant Railway Station",
+    "long": -0.9816,
+    "lat": 50.8543
+},
+{
+    "name": "Byfleet & New Haw Railway Station",
+    "long": -0.4813,
+    "lat": 51.3498
+},
+{
+    "name": "Clapham Junction Main (9-11) Railway Station",
+    "long": -0.170850,
+    "lat": 51.465175
+},
+{
+    "name": "Bedhampton Railway Station",
+    "long": -0.996670,
+    "lat": 50.854009
+},
+{
+    "name": "Earlsfield Railway Station",
+    "long": -0.187612,
+    "lat": 51.442201
+},
+{
+    "name": "Esher Railway Station",
+    "long": -0.352834,
+    "lat": 51.379917
+},
+{
+    "name": "Fratton Railway Station",
+    "long": -1.073686,
+    "lat": 50.796538
+},
+{
+    "name": "Haslemere Railway Station",
+    "long": -0.719142,
+    "lat": 51.088788
+},
+{
+    "name": "Hersham Railway Station",
+    "long": -0.389522,
+    "lat": 51.376984
+},
+{
+    "name": "Hilsea Railway Station",
+    "long": -1.058766,
+    "lat": 50.828249
+},
+{
+    "name": "Liphook Railway Station",
+    "long": -0.800106,
+    "lat": 51.071408
+},
+{
+    "name": "Liss Railway Station",
+    "long": -0.892722,
+    "lat": 51.043672
+},
+{
+    "name": "London Waterloo Railway Station",
+    "long": -0.109187,
+    "lat": 51.504068
+},
+{
+    "name": "Milford Railway Station",
+    "long": -0.636966,
+    "lat": 51.163299
+},
+{
+    "name": "Petersfield Railway Station",
+    "long": -0.941258,
+    "lat": 51.006694
+},
+{
+    "name": "Portsmouth & Southsea Railway Station",
+    "long": -1.090853,
+    "lat": 50.798462
+},
+{
+    "name": "Portsmouth Harbour Railway Station",
+    "long": -1.107644,
+    "lat": 50.797180
+},
+{
+    "name": "Rowlands Castle Railway Station",
+    "long": -0.957425,
+    "lat": 50.892370
+},
+{
+    "name": "Surbiton Railway Station",
+    "long": -0.304456,
+    "lat": 51.392519
+},
+{
+    "name": "Vauxhall Railway Station",
+    "long": -0.123795,
+    "lat": 51.486037
+},
+{
+    "name": "Walton on Thames Railway Station",
+    "long": -0.414525,
+    "lat": 51.372923
+},
+{
+    "name": "West Byfleet Railway Station",
+    "long": -0.505881,
+    "lat": 51.338732
+},
+{
+    "name": "Weybridge Railway Station",
+    "long": -0.457850,
+    "lat": 51.361839
+},
+{
+    "name": "Wimbledon Railway Station",
+    "long": -0.206422,
+    "lat": 51.421419
+},
+{
+    "name": "Witley Railway Station",
+    "long": -0.645836,
+    "lat": 51.133126
+},
+{
+    "name": "Woking Railway Station",
+    "long": -0.556993,
+    "lat": 51.318248
+}
+
+
 ]

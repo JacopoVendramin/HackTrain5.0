@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import 'whatwg-fetch'
 import DashboardComponent from "./DashboardComponent";
 
 class DashboardContainer extends React.Component {
@@ -12,7 +12,19 @@ class DashboardContainer extends React.Component {
             focusedMarker: null,
             activeMarker: null
         }
+    }
 
+    componentDidMount(){
+        fetch('http://localhost:3001/station/CLAPHAM%20JUNCTION%20MAIN%20(9-11)')
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(json){
+                console.log(json)
+            })
+            .catch(function(ex){
+                console.log(ex)
+            })
     }
 
     handleTabChange = (event, index) => {
