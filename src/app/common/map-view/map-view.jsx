@@ -27,8 +27,11 @@ const MapView = ({ stations, mapMarkerStats, focusedMarker, activeMarker, onMark
         center={[-0.576583, 51.238606]}
         zoom={[10]}
         containerStyle={{
+            position: "absolute",
+            top: 0,
+            left: 0,
             height: "100%",
-            width: "100%"
+            width: "66.666%"
         }}>
         <Layer
             type="line"

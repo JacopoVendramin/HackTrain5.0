@@ -73,7 +73,7 @@ const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails,
                     {!shit ? [
                         <div className="Dashboard__left__header">
                             <header>
-                                <Typography variant="h2">London line 2<button><CloseIcon/></button></Typography>
+                                <Typography variant="h2">Line 1<button><CloseIcon/></button></Typography>
                             </header>
                         </div>,
                         <LineListview items={[

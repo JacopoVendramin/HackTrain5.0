@@ -21,7 +21,7 @@ const Navbar = ({ title = "SWR"}) => {
         <AppBar position="static" className="Navbar">
             <Toolbar className="wrapper" style={{maxWidth: "100%", padding: "0"}}>
                 <div className="Navbar__logo"><img src={Logo} /></div>
-                <Typography variant="h5">{title}</Typography>
+                <Typography variant="h5"></Typography>
                 <IconButton component={Link} to={"/"}><ListIcon /></IconButton>
                 <IconButton component={Link} to={"/map"}><MapIcon /></IconButton>
             </Toolbar>
