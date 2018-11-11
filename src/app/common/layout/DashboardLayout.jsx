@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import BackIcon from "@material-ui/icons/ArrowBack";
 
+import Logo from '../../../assets/img/logo.png';
 import "./DashboardLayout.scss";
 
 const Navbar = ({ title = "SWR"}) => {
@@ -16,8 +17,9 @@ const Navbar = ({ title = "SWR"}) => {
 
     return (
         <AppBar position="static" className="Navbar">
-            <Toolbar className="wrapper">
+            <Toolbar className="wrapper" style={{maxWidth: "100%", padding: "0"}}>
                 {pathname != "/" ? <IconButton className="Navbar__up" component={Link} to={pathname.substring(0, pathname.lastIndexOf("/"))}><BackIcon /></IconButton> : null}
+                <div className="Navbar__logo"><img src={Logo} /></div>
                 <Typography variant="h5">{title}</Typography>
                 <Button component={Link} to="/contacts"></Button>
             </Toolbar>

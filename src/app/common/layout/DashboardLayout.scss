@@ -1,11 +1,25 @@
 @import "../styles/colors.scss";
 
 .Navbar {
+    box-shadow: none;
+    background: none;
+    padding: 0;
+
+    img { height: 32px; }
     h5 { flex-grow: 1; color: $background-color }
     a { text-decoration: none; cursor: pointer; color: $background-color }
 
     &__up {
         margin-right: 16px;
+    }
+
+    &__logo {
+        padding: 0 24px;
+        background: $secondary-color;
+        border-bottom-right-radius: 20px;
+        align-self: stretch;
+        align-items: center;
+        display: flex;
     }
 }
 
