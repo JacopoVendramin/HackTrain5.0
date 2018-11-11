@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import TrainIcon from '@material-ui/icons/TrainOutlined';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -87,7 +89,7 @@ const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails,
                                 { name: 'Hersham Railway Station', status: 'Safe', dwellDelay: 2 },
                                 { name: 'Walton on Thames Railway Station', status: 'Warning', dwellDelay: 5 },
                                 { name: 'Weybridge Railway Station', status: 'Blocked', dwellDelay: 60 },
-                            ]} />
+                            ]} />,
                         ] : null}
                     </Grid>
                     <Grid item xs={4}>
@@ -96,6 +98,21 @@ const DashboardComponent = ({ activeMarker, mapMarkerStats, activeMarkerDetails,
                             details={activeMarkerDetails}
                             />
                         : null}
+
+                        {activeMarker ? <div style={{padding: "24px"}}>
+                            <Typography variant="h5" style={{marginBottom: "16px"}}>Historical search</Typography>
+                            <Grid container spacing={16} alignItems="stretch">
+                                <Grid item xs={5}>
+                                    <TextField variant="outlined" fullWidth label="From" />
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <TextField variant="outlined" fullWidth label="To" />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Button variant="contained" color="primary" style={{height: "100%"}}>Go</Button>
+                                </Grid>
+                            </Grid>
+                        </div> : null}
                     </Grid>
                 </Grid>
             </div>
