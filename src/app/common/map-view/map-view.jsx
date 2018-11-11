@@ -25,6 +25,7 @@ const MapView = ({ stations, focusedMarker, activeMarker, onMarkerMouseEnter, on
 
         {stations.map((station, index) => (
             <Marker
+                onClick={() => onMarkerClick(index)}
                 coordinates={[station.long, station.lat]}
                 anchor="bottom"
                 >

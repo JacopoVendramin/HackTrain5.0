@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import 'whatwg-fetch'
 import DashboardComponent from "./DashboardComponent";
 
+import stations from '../data/station-location.json';
+
 class DashboardContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,9 @@ class DashboardContainer extends React.Component {
         this.state = {
             focusedTab: 0,
             focusedMarker: null,
-            activeMarker: null
+            activeMarker: null,
+            activeMarkerAvg: null,
+            activeMarkerLatest: null,
         }
     }
 
@@ -33,13 +37,30 @@ class DashboardContainer extends React.Component {
         })
     }
 
-    handleMarkerFocus = (index) => {
-        this.setState({
-            focusedMarker: index
-        })
-    }
-
     handleMarkerClick = (index) => {
+        if (index) {
+            fetch(`http://localhost:3001/station/${stations[index].id}`)
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(json){
+                    this.setState({ activeMarkerAvg: json.result[0].adAvg })
+                })
+                .catch(function(ex){
+                    console.log(ex)
+                })
+            fetch(`http://localhost:3001/stationStat/${stations[index].id}`)
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(json){
+                    this.setState({ activeMarkerLatest: json.Trainperf })
+                })
+                .catch(function(ex){
+                    console.log(ex)
+                })
+        }
+
         this.setState({
             activeMarker: index
         })
@@ -49,11 +70,12 @@ class DashboardContainer extends React.Component {
         return (
             <DashboardComponent
                 focusedTab = {this.state.focusedTab}
-                focusedMarker = {this.state.focusedMarker}
                 activeMarker = {this.state.activeMarker}
+                activeMarkerDetails = {{
+                    avg: this.state.activeMarkerAvg,
+                    latest: this.state.activeMarkerLatest
+                }}
                 onTabChange= {this.handleTabChange}
-                onMarkerMouseEnter = {(index) => this.handleMarkerFocus(index)}
-                onMarkerMouseLeave = {() => this.handleMarkerFocus(null)}
                 onMarkerClick = {this.handleMarkerClick}
             />
 
