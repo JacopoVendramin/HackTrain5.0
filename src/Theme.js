@@ -20,10 +20,10 @@ const Theme = createMuiTheme({
             fontWeight: "500",
         },
         h2: {
-            color: "#e3e3e3",
+            color: "#333",
             fontFamily: "Montserrat",
-            fontSize: "1.4rem",
-            lineHeight: "1.8rem",
+            fontSize: "1.8rem",
+            lineHeight: "2.6rem",
             marginBottom: ".4rem",
             fontWeight: "500",
         },

@@ -1,14 +1,84 @@
+@import "../../common/styles/colors";
+
 .lineListView {
     height: 100%;
     list-style: none;
-    padding: 0px;
+    padding: 24px;
     margin: 0px;
-    background: #FFFF;
     overflow: auto;
+    position: relative;
+
+    // Track
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 61px;
+        height: 100%;
+        width: 6px;
+        background: $primary-color;
+    }
 
     &__item {
+        padding: 16px 40px;
+        padding-left: 128px;
+        position: relative;
+        z-index: 1;
+
         h5 {
             margin-top: 0px;
+        }
+
+        h5, p { position: relative; z-index: 1; }
+        .bullet { z-index: 1 }
+
+        // Track
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 37px;
+            height: 100%;
+            width: 100%;
+            max-width: 6px;
+            background: $primary-color;
+            transition: .3s;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #f3f3f3;
+            border-radius: 12px;
+            opacity: 0;
+            transition: .3s;
+            z-index: 0;
+        }
+
+        &:hover {
+            // background: #f3f3f3;
+            cursor: pointer;
+
+            &::after {
+                // background: rgba(0, 256, 0, .6);
+                height: 100%;
+                max-width: 6px;
+                left: 37px;
+                transform: scaleX(1.02) scaleY(1.2);
+            }
+
+            &::before {
+                opacity: 1;
+                transform: scaleX(1.02) scaleY(1.1);
+                box-shadow: 0 16px 24px -24px grey;
+            }
         }
     }
 }
