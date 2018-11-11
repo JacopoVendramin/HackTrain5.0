@@ -11,38 +11,52 @@ import MapView from '../common/map-view/map-view'
 import LineListview from '../common/line-listview/line-listview'
 import './Dashboard.scss';
 
-import stations from '../data/station-location.json'
+import stations from '../data/station-location.json';
+
+const ranges = {
+    safe: 2,
+    warning: 10,
+    critical: 30
+}
+
+const getStatus = (delta) => {
+    if (delta <= ranges.safe && delta >= -ranges.safe) return "safe";
+    if (delta >= ranges.warning && delta <= -ranges.warning) return "warning";
+    return "critical";
+}
 
 const DetailCard = (props) => {
+    let avg = parseInt(props.details.avg);
+    let latest = parseInt(props.details.latest);
+
+    let avgTotal = 30 + avg;
+    let latestTotal = 30 + avg;
+
     return (
         <div className="DetailCard">
             <Typography variant="h2">{props.station ? props.station.name : null}</Typography>
             <div>
                 <div className="DetailCard__status">
-                    <div className="DetailCard__status__label"/>
-                    <Typography variant="body1">{props.status}</Typography>
-                    <Typography variant="body1">•</Typography>
-                    <Typography variant="body1">{props.delay}s</Typography>
+                    <div className={`DetailCard__status__label DetailCard__status__label--${getStatus(props.details.avg)}`}/>
+                    <Typography variant="body1">{getStatus(props.details.avg)}</Typography>
                 </div>
             </div>
 
             <div className="DetailCard__info">
                 <Grid container spacing={16}>
-                    <Grid item xs={4}>
+                    <Grid item xs={6}>
                         <div className="DetailCard__info__box">
                             <Typography variant="body1"><strong>Today avarage</strong></Typography>
-                            <Typography variant="h3">0:26</Typography>
-                            <Typography variant="body1">{props.details.avg}</Typography>
+                            <Typography variant="h3">{ 0 + avgTotal > 10 ? avgTotal : "0" + avgTotal }</Typography>
+                            <Typography variant="body1">{avg}</Typography>
                         </div>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={6}>
                         <div className="DetailCard__info__box">
                             <Typography variant="body1"><strong>Latest dwell</strong></Typography>
-                            <Typography variant="h3">0:38</Typography>
-                            <Typography variant="body1">{props.details.latest}</Typography>
+                            <Typography variant="h3">{ 0 + latestTotal > 10 ? latestTotal : "0" + latestTotal }</Typography>
+                            <Typography variant="body1">{latest}</Typography>
                         </div>
-                    </Grid>
-                    <Grid item xs={4}>
                     </Grid>
                 </Grid>
             </div>
@@ -58,10 +72,10 @@ const DashboardComponent = ({ activeMarker, activeMarkerDetails, onMarkerClick }
                     <MapView stations={stations} onMarkerClick={onMarkerClick}/>
                 </Grid>
                 <Grid item xs={4}>
-                    <DetailCard
+                    {activeMarker ? <DetailCard
                         station={stations[activeMarker] ? stations[activeMarker] : null}
                         details={activeMarkerDetails}
-                        />
+                        /> : null}
                 </Grid>
             </Grid>
         </div>

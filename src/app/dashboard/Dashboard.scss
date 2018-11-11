@@ -88,8 +88,11 @@
             width: 20px;
             margin-top: 6px;
             border-radius: 50%;
-            background: red;
             margin-right: 4px;
+
+            &--safe { background: green }
+            &--warning { background: orange }
+            &--critical { background: red }
         }
     }
 
