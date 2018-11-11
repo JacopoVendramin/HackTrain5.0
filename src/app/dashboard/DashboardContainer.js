@@ -8,7 +8,9 @@ class DashboardContainer extends React.Component {
         super(props);
 
         this.state = {
-            focusedTab: 0
+            focusedTab: 0,
+            focusedMarker: null,
+            activeMarker: null
         }
 
     }
@@ -19,11 +21,28 @@ class DashboardContainer extends React.Component {
         })
     }
 
+    handleMarkerFocus = (index) => {
+        this.setState({
+            focusedMarker: index
+        })
+    }
+
+    handleMarkerClick = (index) => {
+        this.setState({
+            activeMarker: index
+        })
+    }
+
     render() {
         return (
             <DashboardComponent
                 focusedTab = {this.state.focusedTab}
+                focusedMarker = {this.state.focusedMarker}
+                activeMarker = {this.state.activeMarker}
                 onTabChange= {this.handleTabChange}
+                onMarkerMouseEnter = {(index) => this.handleMarkerFocus(index)}
+                onMarkerMouseLeave = {() => this.handleMarkerFocus(null)}
+                onMarkerClick = {this.handleMarkerClick}
             />
 
         )

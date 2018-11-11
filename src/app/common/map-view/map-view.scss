@@ -1,0 +1,9 @@
+.MapView__marker {
+    display: block;
+    height: 32px;
+    width: 32px;
+    background: red;
+    border-radius: 16px;
+    border: 8px solid lighten(red, 30%);
+    box-sizing: border-box;
+}
